@@ -89,7 +89,7 @@ public class Main {
 			return false;
 		}
 		
-		Contador C = new Contador(num1, num2);
+		Contador C = new Contador(num1, num2, 0, 0);
 		listaContadores.add(C);
 		return true;
 	}
@@ -98,7 +98,29 @@ public class Main {
 		Iterator <Contador> it = listaContadores.iterator();
 		while (it.hasNext()) {
 			Contador C = (Contador) it.next();
-			System.out.println(C.toString());
+			//System.out.println(C.toString());
+			
+			//Calcular la cantidad de kw consumido
+			int consumo = C.getValorFinal() - C.getValorInicial();
+			C.setConsumido(consumo);
+			
+			//Calcular precio a pagar
+			int precio = 1; //1 euro de gastos fijos
+			
+			if (consumo <= 100) precio = precio + (consumo * 2);
+			else {
+				precio = precio + 200;
+				consumo -= 100;
+				
+				if (consumo <= 150) precio = precio + (consumo * 3);
+				else {
+					precio = precio + (150 * 3);
+					consumo -= 150;
+					precio = precio + (consumo * 4);
+				}
+			}
+			C.setPrecio(precio);
+			System.out.println(C.getConsumido() + " " + C.getPrecio());
 		}
 	}
 }

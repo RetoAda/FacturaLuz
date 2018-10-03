@@ -7,6 +7,8 @@ package es.unex.cum.reto;
 public class Contador {
 	private int valorInicial;
 	private int valorFinal;
+	private int consumido;
+	private int precio;
 	
 	/**
 	 * Constructor por defecto de la clase
@@ -14,16 +16,22 @@ public class Contador {
 	public Contador() {
 		valorInicial = 0;
 		valorFinal = 0;
+		consumido = 0;
+		precio = 0;
 	}
 	/**
 	 * Constructor parametrizado de la clase. Recibe ambos atributos.
 	 * @param valorInicial
 	 * @param valorFinal
+	 * @param consumido
+	 * @param precio
 	 */
-	public Contador(int valorInicial, int valorFinal) {
+	public Contador(int valorInicial, int valorFinal, int consumido, int precio) {
 		super();
 		this.valorInicial = valorInicial;
 		this.valorFinal = valorFinal;
+		this.consumido = consumido;
+		this.precio = precio;
 	}
 	/**
 	 * Método get que devuelve el valor inicial.
@@ -53,7 +61,20 @@ public class Contador {
 	public void setValorFinal(int valorFinal) {
 		this.valorFinal = valorFinal;
 	}
+	
 
+	public int getConsumido() {
+		return consumido;
+	}
+	public void setConsumido(int consumido) {
+		this.consumido = consumido;
+	}
+	public int getPrecio() {
+		return precio;
+	}
+	public void setPrecio(int precio) {
+		this.precio = precio;
+	}
 	@Override
 	/**
 	 * Método toString que devuelve una cadena con información del objeto.
