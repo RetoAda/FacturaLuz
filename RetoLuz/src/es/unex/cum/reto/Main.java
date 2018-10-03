@@ -110,12 +110,12 @@ public class Main {
 			if (consumo <= 100) precio = precio + (consumo * 2);
 			else {
 				precio = precio + 200;
-				consumo -= 100;
+				consumo = consumo - 100;
 				
 				if (consumo <= 150) precio = precio + (consumo * 3);
 				else {
 					precio = precio + (150 * 3);
-					consumo -= 150;
+					consumo = consumo - 150;
 					precio = precio + (consumo * 4);
 				}
 			}
